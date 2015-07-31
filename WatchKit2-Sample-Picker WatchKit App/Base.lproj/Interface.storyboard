@@ -1,15 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="13E28" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8083.2"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--List Pciker Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="ListPcikerInterfaceController" customModule="WatchKit2_Sample_Picker_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="List Picker" id="B6X-mv-0e7"/>
+                        <picker width="1" height="100" alignment="left" focusStyle="sequence" indicatorMode="shownWhileFocused" id="pgS-UM-Aaf">
+                            <connections>
+                                <action selector="pickerSelectedItemChanged:" destination="AgC-eL-Hgc" id="EaQ-9B-9ij"/>
+                            </connections>
+                        </picker>
+                    </items>
+                    <connections>
+                        <outlet property="listPicker" destination="pgS-UM-Aaf" id="mfm-bU-dg5"/>
+                        <segue destination="UQw-PR-geL" kind="relationship" relationship="nextPage" id="i69-fQ-Csm"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="150" y="324"/>
+        </scene>
+        <!--Sequence Picker Interface Controller-->
+        <scene sceneID="B66-dV-sZ2">
+            <objects>
+                <controller hidesWhenLoading="NO" id="xUU-DB-XpD" customClass="SequencePickerInterfaceController" customModule="WatchKit2_Sample_Picker_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Sequence Picker" id="PLB-PE-v4k"/>
+                        <picker width="1" height="100" alignment="left" style="sequence" id="smu-ml-NoJ">
+                            <connections>
+                                <action selector="pickerSelectedItemChanged:" destination="xUU-DB-XpD" id="pGg-iO-MnK"/>
+                            </connections>
+                        </picker>
+                    </items>
+                    <connections>
+                        <outlet property="seqPicker" destination="smu-ml-NoJ" id="JDx-DY-KSj"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="553" y="324"/>
+        </scene>
+        <!--Stack Picker Interface Controller-->
+        <scene sceneID="Yk5-9C-iI0">
+            <objects>
+                <controller hidesWhenLoading="NO" id="UQw-PR-geL" customClass="StackPickerInterfaceController" customModule="WatchKit2_Sample_Picker_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Stack Picker" id="Thy-gM-O62"/>
+                        <picker width="1" height="100" alignment="left" style="stack" id="xue-xp-b4t">
+                            <connections>
+                                <action selector="pickerSelectedItemChanged:" destination="UQw-PR-geL" id="tNQ-PC-gol"/>
+                            </connections>
+                        </picker>
+                    </items>
+                    <connections>
+                        <outlet property="stackPicker" destination="xue-xp-b4t" id="Qg5-SE-brx"/>
+                        <segue destination="xUU-DB-XpD" kind="relationship" relationship="nextPage" id="iV4-Zy-JO4"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="353" y="324"/>
         </scene>
     </scenes>
 </document>
