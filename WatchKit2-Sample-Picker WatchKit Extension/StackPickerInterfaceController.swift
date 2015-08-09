@@ -32,7 +32,7 @@ class StackPickerInterfaceController: WKInterfaceController {
             return pickerItem
         }
         stackPicker.setItems(pickerItems)
-        stackPicker.focusForCrownInput()
+        stackPicker.focus()
     }
 
     override func didDeactivate() {
